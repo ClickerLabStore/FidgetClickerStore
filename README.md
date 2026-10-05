@@ -1,0 +1,2 @@
+# FidgetClickerStore
+Website for clickers
