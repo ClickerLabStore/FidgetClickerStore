@@ -311,16 +311,70 @@
       border-radius: 36px;
       padding: clamp(26px, 5vw, 54px);
       display: grid;
-      grid-template-columns: 1fr .78fr;
+      grid-template-columns: .72fr 1.28fr;
       gap: 40px;
-      align-items: center;
+      align-items: start;
     }
     .builder h2 { margin: 0 0 12px; font-size: clamp(2.2rem, 5vw, 4rem); line-height: .95; letter-spacing: -.055em; }
     .builder p { margin: 0; color: #59637a; }
-    .builder-box { background: rgba(255,255,255,.84); padding: 22px; border-radius: 24px; box-shadow: 0 16px 38px rgba(23,35,59,.08); }
-    .builder-box label { display:block; font-weight:900; margin-bottom:9px; }
-    .builder-box select { width:100%; padding:13px 14px; border-radius:13px; border:1px solid #dfe1e8; background:#fff; color:var(--ink); margin-bottom:14px; }
+    .builder-box { background: rgba(255,255,255,.9); padding: 22px; border-radius: 24px; box-shadow: 0 16px 38px rgba(23,35,59,.08); }
     .builder-box .button { width:100%; }
+    .builder-step + .builder-step { margin-top:20px; padding-top:18px; border-top:1px solid rgba(23,35,59,.08); }
+    .builder-label { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; font-weight:950; }
+    .builder-label small { color:var(--muted); font-weight:800; }
+    .builder-help { font-size:.84rem; margin:-2px 0 12px !important; }
+    .builder-choice-row { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:8px; }
+    .builder-choice-button {
+      border:1px solid #dfe1e8;
+      background:#fff;
+      color:var(--ink);
+      min-height:66px;
+      border-radius:14px;
+      padding:10px;
+      cursor:pointer;
+      font-weight:900;
+      text-align:center;
+      transition:.18s ease;
+    }
+    .builder-choice-button:hover { transform:translateY(-1px); border-color:#c9cbd4; }
+    .builder-choice-button.selected { border-color:var(--peach); background:#fff3ef; box-shadow:0 0 0 3px rgba(255,123,102,.12); }
+    .switch-choice-row { grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .switch-choice-button { text-align:left; padding:12px 14px; }
+    .switch-choice-button strong { display:block; }
+    .switch-choice-button span { display:block; color:var(--muted); font-size:.8rem; margin-top:3px; font-weight:700; }
+    .key-position-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+    .key-position-button {
+      border:1px solid #dfe1e8;
+      background:#fff;
+      border-radius:14px;
+      min-width:92px;
+      padding:8px 10px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:var(--ink);
+      font-weight:900;
+    }
+    .key-position-button.active { border-color:var(--peach); box-shadow:0 0 0 3px rgba(255,123,102,.12); }
+    .key-position-thumb { width:42px; height:42px; border-radius:10px; object-fit:cover; background:#f3f3f4; flex:0 0 auto; }
+    .key-position-placeholder { width:42px; height:42px; border-radius:10px; display:grid; place-items:center; background:#f3f3f4; color:#9aa0ad; flex:0 0 auto; }
+    .keycap-picker-grid { display:grid; grid-template-columns:repeat(6, minmax(0,1fr)); gap:8px; }
+    .keycap-option {
+      border:1px solid #dfe1e8;
+      background:#fff;
+      border-radius:13px;
+      padding:6px;
+      cursor:pointer;
+      position:relative;
+      transition:.18s ease;
+    }
+    .keycap-option:hover { transform:translateY(-2px); }
+    .keycap-option.selected { border-color:var(--peach); box-shadow:0 0 0 3px rgba(255,123,102,.12); }
+    .keycap-option img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:9px; }
+    .keycap-option span { display:block; font-size:.72rem; font-weight:850; text-align:center; margin-top:4px; }
+    .builder-summary { margin:18px 0 12px; padding:13px 14px; border-radius:14px; background:#f7f6f8; color:var(--muted); font-size:.86rem; line-height:1.45; }
+    .builder-summary strong { color:var(--ink); }
 
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .about-card { border-radius: var(--radius-lg); padding: 32px; background:#fff; border:1px solid rgba(23,35,59,.07); box-shadow:0 14px 34px rgba(23,35,59,.05); }
@@ -363,6 +417,7 @@
     .cart-thumb { width:78px; height:78px; object-fit:contain; background:#f6f5f2; border-radius:14px; }
     .cart-item h3 { margin:1px 0 4px; font-size:.97rem; }
     .cart-item-price { color:var(--muted); font-size:.86rem; }
+    .cart-config { color:var(--muted); font-size:.76rem; line-height:1.35; margin-top:4px; }
     .quantity { display:inline-flex; align-items:center; margin-top:9px; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
     .quantity button { border:0; background:#fff; width:31px; height:29px; cursor:pointer; font-weight:900; }
     .quantity span { min-width:29px; text-align:center; font-size:.86rem; font-weight:800; }
@@ -410,6 +465,9 @@
       .bundle-card { min-height:250px; }
       .footer-row { align-items:flex-start; flex-direction:column; }
       .checkout-actions .button { width:100%; }
+      .builder-choice-row { grid-template-columns:repeat(2, minmax(0,1fr)); }
+      .switch-choice-row { grid-template-columns:1fr; }
+      .keycap-picker-grid { grid-template-columns:repeat(3, minmax(0,1fr)); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -500,16 +558,48 @@
     <section class="section alt" id="build">
       <div class="container">
         <div class="builder">
-          <div><span class="eyebrow">🧩 Build your own</span><h2>Your fidget, your key count.</h2><p>Choose how many mechanical keys you want, then add that base clicker to your cart. You can swap keycap styles and switch options later as your catalog grows.</p></div>
+          <div>
+            <span class="eyebrow">🧩 Build your own</span>
+            <h2>Make every key yours.</h2>
+            <p>Choose 1, 2, 3, or 4 keys, pick a Clicky or Creamy switch feel, then choose one of 11 keycap styles for every key position.</p>
+          </div>
+
           <div class="builder-box">
-            <label for="builderKeys">How many keys?</label>
-            <select id="builderKeys">
-              <option value="1-key">1 key — ultra compact</option>
-              <option value="2-key">2 keys — pocket pair</option>
-              <option value="3-key">3 keys — balanced trio</option>
-              <option value="4-key">4 keys — full click row</option>
-            </select>
-            <button class="button primary" id="builderAddButton" type="button">Add this setup</button>
+            <div class="builder-step">
+              <div class="builder-label"><span>1. How many keys?</span><small id="builderPrice">$2.49</small></div>
+              <div class="builder-choice-row" id="builderKeyCountOptions" aria-label="Choose number of keys">
+                <button class="builder-choice-button selected" type="button" data-builder-key-count="1">1 key</button>
+                <button class="builder-choice-button" type="button" data-builder-key-count="2">2 keys</button>
+                <button class="builder-choice-button" type="button" data-builder-key-count="3">3 keys</button>
+                <button class="builder-choice-button" type="button" data-builder-key-count="4">4 keys</button>
+              </div>
+            </div>
+
+            <div class="builder-step">
+              <div class="builder-label"><span>2. Choose your switch</span><small>Same switch feel on every key</small></div>
+              <div class="builder-choice-row switch-choice-row" id="builderSwitchOptions">
+                <button class="builder-choice-button switch-choice-button selected" type="button" data-builder-switch="clicky">
+                  <strong>Clicky</strong>
+                  <span>Crisp, tactile click</span>
+                </button>
+                <button class="builder-choice-button switch-choice-button" type="button" data-builder-switch="creamy">
+                  <strong>Creamy</strong>
+                  <span>Smoother, softer sound</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="builder-step">
+              <div class="builder-label"><span>3. Pick a keycap for each key</span><small>11 styles</small></div>
+              <p class="builder-help">Select a key position, then choose its keycap. The picker moves to the next unfinished key automatically.</p>
+              <div class="key-position-tabs" id="builderPositions" aria-label="Key positions"></div>
+              <div class="keycap-picker-grid" id="builderKeycapGrid" aria-label="Keycap choices"></div>
+            </div>
+
+            <div class="builder-summary" id="builderSummary"></div>
+            <button class="button primary" id="builderAddButton" type="button" disabled>
+              Choose every keycap to add
+            </button>
           </div>
         </div>
       </div>

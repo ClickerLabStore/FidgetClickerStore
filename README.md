@@ -11,14 +11,14 @@ A lightweight, static e-commerce storefront for tactile mechanical-key clicker f
 - Add, remove, and quantity controls
 - Cart persistence with `localStorage`
 - Bundle add-to-cart actions
-- Simple build-your-own key-count selector
+- Build Your Own configurator for 1–4 keys, Clicky/Creamy switch feel, and 11 keycap styles per key position
 - Checkout summary flow
 
 ## Files
 
 - `index.html` — layout, responsive styles, storefront sections, cart drawer markup
 - `app.js` — product catalog, cart state, localStorage syncing, rendering, and interactions
-- Product images are embedded directly in `app.js` so GitHub Pages needs only the three core files.
+- Product and keycap images are embedded directly in `app.js`, so GitHub Pages still needs only the three core files.
 
 ## Run locally
 
